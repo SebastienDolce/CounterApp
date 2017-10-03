@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14F27" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Count" representedClassName="Count" syncable="YES">
+        <attribute name="lattitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="theCount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="theDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="theImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="counts" inverseEntity="Item" syncable="YES"/>
+    </entity>
+    <entity name="Item" representedClassName="Item" syncable="YES">
+        <attribute name="iName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="theImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="totalCounts" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="counts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Count" inverseName="item" inverseEntity="Count" syncable="YES"/>
+        <relationship name="itemList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ItemList" inverseName="items" inverseEntity="ItemList" syncable="YES"/>
+    </entity>
+    <entity name="ItemList" representedClassName="ItemList" syncable="YES">
+        <attribute name="itemName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="theImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="itemList" inverseEntity="Item" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Count" positionX="-36" positionY="27" width="128" height="133"/>
+        <element name="Item" positionX="-225" positionY="-63" width="128" height="120"/>
+        <element name="ItemList" positionX="-414" positionY="-162" width="128" height="88"/>
+    </elements>
+</model>
